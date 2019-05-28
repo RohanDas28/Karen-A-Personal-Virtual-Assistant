@@ -7,12 +7,12 @@ import os
 
 engine = pyttsx3.init('sapi5')
 voices = engine.getProperty('voices')
-engine.setProperty('voice', voices[3].id)
+engine.setProperty('voice', voices[0].id)
 
 #Applications Path 
 chrome_path = 'C:/Program Files (x86)/Google/Chrome/Application/chrome.exe %s'
-spotifypath= "C:\\Users\\Rohan\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\Spotify.lnk"
-codePath = "C:\\Users\\Rohan\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe"
+spotifypath= "C:\\Users\\YourUserName\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\Spotify.lnk"
+codePath = "C:\\Users\\YourUserName\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe"
 
 def speak(audio):
     engine.say(audio)
@@ -30,7 +30,7 @@ def wishMe():
     else:
         speak("Good Evening!")  
 
-    speak("Hello Sir I am Maeve, I am Your Personal Assistant, How Can I Help You?")       
+    speak("Hello Sir I am Karen, I am Your Personal Assistant, How Can I Help You?")       
 
 def takeCommand():
 
@@ -89,8 +89,8 @@ if __name__ == "__main__":
             speak("opening twitter")
             webbrowser.get(chrome_path).open("twitter.com")
 
-        elif 'open my website' in query:
-            speak("Opening!")
+        elif 'open special website' in query:
+            speak("Opening! please wait!")
             webbrowser.get(chrome_path).open("rohandas28.github.io")  
 
 
