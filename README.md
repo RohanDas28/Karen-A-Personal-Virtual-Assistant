@@ -12,7 +12,7 @@ As it uses Windows Speech Engine to talk this programme can run only in Windows 
 # Requirments
 ### Make sure that you have the latest version of Python installed.
 #### To start open CMD in the directory then run the code below!
-```pip install requirments.txt```<br>
+```pip install -r requirments.txt```<br>
 - Be sure to change the application path on assistant.py otherwise it wont open Google Chrome and other Apps. <br>
 - Say ```open special website```  to visit my website!
 ##### This app is still in developement stage! Be sure to star the repository to get future updates. 
