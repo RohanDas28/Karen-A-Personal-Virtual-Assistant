@@ -1,6 +1,6 @@
 # Karen
 Karen is a virtual assistant which can be used to automate your tasks.
-As it uses Windows Speech Engine to talk this programme can run only in Windows operating system.
+As it uses Windows Speech Engine to talk, this programme can run only in Windows operating system.(Linux Support Will Come Soon!)
 
 # What Karen can do
   1. It can speak<br>

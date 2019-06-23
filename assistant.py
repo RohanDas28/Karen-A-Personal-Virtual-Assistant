@@ -4,12 +4,24 @@ import datetime
 import wikipedia #pip install wikipedia
 import webbrowser
 import os
+import random
 
 engine = pyttsx3.init('sapi5')
 voices = engine.getProperty('voices')
-engine.setProperty('voice', voices[0].id)
+engine.setProperty('voice', voices[1].id)
 
-#Applications Path 
+#For Some Normal Talk With Karen
+def KarenSpeak():
+    karen_there = ["Always at your service sir", "Yes Sir", "Always!", "Yes Sir, I Love Seeing you work"]
+    karen_there_speak = random.choice(karen_there)
+    speak(karen_there_speak)
+
+def KarenLoveYou():
+    karen_love = ["I Love You 3000 Sir", "I Love you too!", "yeah Sir Love You Too!"]
+    karen_love_speak = random.choice(karen_love)
+    speak(karen_love_speak)
+
+#Applications Path
 chrome_path = 'C:/Program Files (x86)/Google/Chrome/Application/chrome.exe %s'
 spotifypath= "C:\\Users\\YourUserName\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\Spotify.lnk"
 codePath = "C:\\Users\\YourUserName\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe"
@@ -22,15 +34,15 @@ def speak(audio):
 def wishMe():
     hour = int(datetime.datetime.now().hour)
     if hour>=0 and hour<12:
-        speak("Good Morning!")
+        speak("Good Morning Sir!")
 
     elif hour>=12 and hour<18:
-        speak("Good Afternoon!")   
+        speak("Good Afternoon Sir!")   
 
     else:
-        speak("Good Evening!")  
+        speak("Good Evening Sir!")  
 
-    speak("Hello Sir I am Karen, I am Your Personal Assistant, How Can I Help You?")       
+    speak("Hello Sir Karen's Here to Help You!")       
 
 def takeCommand():
 
@@ -70,41 +82,77 @@ if __name__ == "__main__":
             quit(speak ('Shutting Down.... Good Bye Sir'))
 
         elif 'open youtube' in query:
-            speak("opening youtube")
-            webbrowser.get(chrome_path).open("youtube.com")
+            try:
+                speak("opening youtube")
+                webbrowser.get(chrome_path).open("youtube.com")
+            except:
+                speak("opening youtube")
+                webbrowser.open("youtube.com")
 
         elif 'open google' in query:
-            speak("opening google")
-            webbrowser.get(chrome_path).open("google.com")
+            try:
+                speak("opening google")
+                webbrowser.get(chrome_path).open("google.com")
+            except:
+                speak('opening Google')
+                webbrowser.open("google.com")
 
         elif 'open stackoverflow' in query:
-            speak("opening stackoverflow")
-            webbrowser.get(chrome_path).open("stackoverflow.com")
+            try:
+                speak("opening stackoverflow")
+                webbrowser.get(chrome_path).open("stackoverflow.com")
+            except:
+                speak('opening stackoverflow')
+                webbrowser.open("stackoverflow.com")
 
         elif 'open facebook' in query:
-            speak("opening facebook")
-            webbrowser.get(chrome_path).open("facebook.com")
+            try:
+                speak("opening facebook")
+                webbrowser.get(chrome_path).open("facebook.com")
+            except:
+                speak("opening facebook")
+                webbrowser.open("facebook.com")
 
         elif 'open twitter' in query:
-            speak("opening twitter")
-            webbrowser.get(chrome_path).open("twitter.com")
+            try:
+                speak("opening twitter")
+                webbrowser.get(chrome_path).open("twitter.com")
+            except:
+                speak("opening Twitter")
+                webbrowser.open("twitter.com")
 
         elif 'open special website' in query:
-            speak("Opening! please wait!")
-            webbrowser.get(chrome_path).open("rohandas28.github.io")  
-
+            try:
+                speak("Opening! please wait!")
+                webbrowser.get(chrome_path).open("rohandas28.github.io")  
+            except:
+                speak("Opening Special Website!")
+                webbrowser.open("rohandas28.github.io")
 
         elif 'play music' in query:
-            os.startfile(spotifypath)
-            speak('Playing Music!')
+            try:
+                os.startfile(spotifypath)
+                speak('Playing Music!')
+            except:
+                speak("Sir Please Install Sptify First!")
+                webbrowser.open("https://www.spotify.com/in/")
 
         elif 'the time' in query:
             strTime = datetime.datetime.now().strftime("%H:%M:%S")    
             speak(f"Sir, the time is {strTime}")
 
         elif 'open code' in query:
-            os.startfile(codePath)
+            try:
+                os.startfile(codePath)
+            except:
+                speak("Please Install VSCode First!")
+                webbrowser.open("https://code.visualstudio.com/")
 
         elif 'who made you' in query:
-            speak("Rohan Das Is The Creator Of Me!, He Is a Nice Person. You Must Follow Him On Github!")
-  
+            speak("Rohan Das Is The Creator Of Me! I Love him 3000!")
+        
+        elif 'you there' in query:
+            KarenSpeak()
+        
+        elif 'love you' in query:
+            KarenLoveYou()
