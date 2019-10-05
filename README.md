@@ -1,5 +1,5 @@
 
-# Karen
+# Karen [![forthebadge](https://forthebadge.com/images/badges/made-with-python.svg)](https://forthebadge.com)
 
 Karen is a virtual assistant which can be used to automate your tasks.
 
